@@ -1,0 +1,1403 @@
+[
+{
+  "name": "JavaScript",
+  "image_url": "https://example.com/javascript.png",
+  "questions": [
+    {
+      "question": "What is the output of 'typeof NaN'?",
+      "options": ["number", "NaN", "undefined", "object"],
+      "answer": "number"
+    },
+    {
+      "question": "Which keyword declares a constant?",
+      "options": ["const", "var", "let", "define"],
+      "answer": "const"
+    },
+    {
+      "question": "Which symbol is used for single-line comments in JavaScript?",
+      "options": ["//", "/* */", "#", "--"],
+      "answer": "//"
+    },
+    {
+      "question": "Which method converts a JSON string into an object?",
+      "options": ["JSON.parse()", "JSON.stringify()", "JSON.object()", "parse.JSON()"],
+      "answer": "JSON.parse()"
+    },
+    {
+      "question": "Which method is used to serialize an object into a JSON string?",
+      "options": ["JSON.stringify()", "JSON.parse()", "JSON.encode()", "JSON.toString()"],
+      "answer": "JSON.stringify()"
+    },
+    {
+      "question": "What is the result of '2' + 2 in JavaScript?",
+      "options": ["22", "4", "NaN", "undefined"],
+      "answer": "22"
+    },
+    {
+      "question": "What does the '===' operator do?",
+      "options": [
+        "Checks both value and type equality",
+        "Checks value only",
+        "Assigns value",
+        "Compares objects only"
+      ],
+      "answer": "Checks both value and type equality"
+    },
+    {
+      "question": "Which keyword is used to define a function in JavaScript?",
+      "options": ["function", "def", "func", "lambda"],
+      "answer": "function"
+    },
+    {
+      "question": "Which object is the parent of all JavaScript objects?",
+      "options": ["Object", "Global", "Window", "Root"],
+      "answer": "Object"
+    },
+    {
+      "question": "What is the default value of an uninitialized variable?",
+      "options": ["undefined", "null", "0", "false"],
+      "answer": "undefined"
+    },
+    {
+      "question": "How do you write an arrow function?",
+      "options": [
+        "() => {}",
+        "function() => {}",
+        "() -> {}",
+        "(=>) {}"
+      ],
+      "answer": "() => {}"
+    },
+    {
+      "question": "What is the purpose of the 'this' keyword?",
+      "options": [
+        "Refers to the current object",
+        "Declares a variable",
+        "Imports a module",
+        "Binds event listeners"
+      ],
+      "answer": "Refers to the current object"
+    },
+    {
+      "question": "Which array method adds one or more elements to the end of an array?",
+      "options": ["push()", "pop()", "shift()", "unshift()"],
+      "answer": "push()"
+    },
+    {
+      "question": "Which statement is used to handle exceptions in JavaScript?",
+      "options": ["try...catch", "catch...throw", "handle...error", "exception"],
+      "answer": "try...catch"
+    },
+    {
+      "question": "What is a closure in JavaScript?",
+      "options": [
+        "A function with preserved scope",
+        "A sealed object",
+        "A memory leak",
+        "An inline function"
+      ],
+      "answer": "A function with preserved scope"
+    },
+    {
+      "question": "Which method removes the last element from an array?",
+      "options": ["pop()", "shift()", "splice()", "slice()"],
+      "answer": "pop()"
+    },
+    {
+      "question": "What is the purpose of 'use strict'?",
+      "options": [
+        "Enables strict mode to catch errors",
+        "Encrypts JavaScript code",
+        "Prevents global variables",
+        "Locks object properties"
+      ],
+      "answer": "Enables strict mode to catch errors"
+    },
+    {
+      "question": "Which loop is best when the number of iterations is known?",
+      "options": ["for", "while", "do...while", "for...in"],
+      "answer": "for"
+    },
+    {
+      "question": "What will `Boolean(0)` return?",
+      "options": ["false", "true", "0", "undefined"],
+      "answer": "false"
+    },
+    {
+      "question": "What does DOM stand for?",
+      "options": [
+        "Document Object Model",
+        "Data Object Management",
+        "Dynamic Object Map",
+        "Document Order Method"
+      ],
+      "answer": "Document Object Model"
+    }
+  ]
+},
+{
+  "name": "HTML",
+  "image_url": "https://example.com/html.png",
+  "questions": [
+    {
+      "question": "Which tag defines a table row?",
+      "options": ["<tr>", "<td>", "<th>", "<table>"],
+      "answer": "<tr>"
+    },
+    {
+      "question": "What tag is used to display a picture in HTML?",
+      "options": ["<img>", "<picture>", "<image>", "<src>"],
+      "answer": "<img>"
+    },
+    {
+      "question": "What does HTML stand for?",
+      "options": [
+        "Hyper Text Markup Language",
+        "Home Tool Markup Language",
+        "Hyperlinks and Text Mark Language",
+        "Hyper Transfer Markup Language"
+      ],
+      "answer": "Hyper Text Markup Language"
+    },
+    {
+      "question": "Which tag is used to create a hyperlink in HTML?",
+      "options": ["<a>", "<link>", "<href>", "<url>"],
+      "answer": "<a>"
+    },
+    {
+      "question": "Which tag defines the largest heading?",
+      "options": ["<h1>", "<h6>", "<head>", "<header>"],
+      "answer": "<h1>"
+    },
+    {
+      "question": "Which HTML element is used to define emphasized text?",
+      "options": ["<em>", "<strong>", "<i>", "<mark>"],
+      "answer": "<em>"
+    },
+    {
+      "question": "What is the correct HTML element for inserting a line break?",
+      "options": ["<br>", "<lb>", "<break>", "<line>"],
+      "answer": "<br>"
+    },
+    {
+      "question": "Which HTML element is used to define important text?",
+      "options": ["<strong>", "<b>", "<important>", "<bold>"],
+      "answer": "<strong>"
+    },
+    {
+      "question": "Which tag is used to define an unordered list?",
+      "options": ["<ul>", "<ol>", "<li>", "<list>"],
+      "answer": "<ul>"
+    },
+    {
+      "question": "What tag is used to define a list item?",
+      "options": ["<li>", "<ul>", "<item>", "<list>"],
+      "answer": "<li>"
+    },
+    {
+      "question": "Which tag defines the document’s body?",
+      "options": ["<body>", "<main>", "<document>", "<section>"],
+      "answer": "<body>"
+    },
+    {
+      "question": "Which tag is used for metadata in HTML?",
+      "options": ["<meta>", "<head>", "<data>", "<info>"],
+      "answer": "<meta>"
+    },
+    {
+      "question": "Which HTML element is used to play video files?",
+      "options": ["<video>", "<media>", "<movie>", "<play>"],
+      "answer": "<video>"
+    },
+    {
+      "question": "Which input type allows users to pick a date?",
+      "options": ["date", "datetime", "calendar", "time"],
+      "answer": "date"
+    },
+    {
+      "question": "What attribute specifies the URL in an anchor tag?",
+      "options": ["href", "src", "link", "url"],
+      "answer": "href"
+    },
+    {
+      "question": "Which tag is used to define a table header?",
+      "options": ["<th>", "<thead>", "<td>", "<tr>"],
+      "answer": "<th>"
+    },
+    {
+      "question": "What tag is used to group related elements in a form?",
+      "options": ["<fieldset>", "<group>", "<formgroup>", "<section>"],
+      "answer": "<fieldset>"
+    },
+    {
+      "question": "What tag is used to label an input field?",
+      "options": ["<label>", "<caption>", "<input-label>", "<desc>"],
+      "answer": "<label>"
+    },
+    {
+      "question": "Which HTML tag is used to embed JavaScript?",
+      "options": ["<script>", "<js>", "<javascript>", "<code>"],
+      "answer": "<script>"
+    },
+    {
+      "question": "What does the <title> tag define?",
+      "options": [
+        "The title of the document shown in the browser tab",
+        "A heading inside the page",
+        "The tooltip of an image",
+        "The document's metadata"
+      ],
+      "answer": "The title of the document shown in the browser tab"
+    }
+  ]
+},
+
+{
+  "name": "CSS",
+  "image_url": "https://example.com/css.png",
+  "questions": [
+    {
+      "question": "What does CSS stand for?",
+      "options": [
+        "Cascading Style Sheets",
+        "Creative Style System",
+        "Computer Style Sheet",
+        "Colorful Style Sheets"
+      ],
+      "answer": "Cascading Style Sheets"
+    },
+    {
+      "question": "Which unit is relative to the font-size of the element?",
+      "options": ["em", "px", "%", "vh"],
+      "answer": "em"
+    },
+    {
+      "question": "Which CSS property changes text color?",
+      "options": ["color", "text-color", "font-color", "foreground"],
+      "answer": "color"
+    },
+    {
+      "question": "How do you make a list horizontal in CSS?",
+      "options": [
+        "display: inline;",
+        "float: left;",
+        "text-align: right;",
+        "display: block;"
+      ],
+      "answer": "display: inline;"
+    },
+    {
+      "question": "Which CSS property controls the text size?",
+      "options": ["font-size", "text-size", "size", "font"],
+      "answer": "font-size"
+    },
+    {
+      "question": "Which CSS property is used for spacing inside an element?",
+      "options": ["padding", "margin", "border-spacing", "gap"],
+      "answer": "padding"
+    },
+    {
+      "question": "Which CSS property defines the space outside an element?",
+      "options": ["margin", "padding", "border", "spacing"],
+      "answer": "margin"
+    },
+    {
+      "question": "Which selector targets all `<p>` elements inside `<div>`?",
+      "options": ["div p", "div.p", "div + p", "p div"],
+      "answer": "div p"
+    },
+    {
+      "question": "What property is used to change the background color?",
+      "options": ["background-color", "bgcolor", "color", "background-style"],
+      "answer": "background-color"
+    },
+    {
+      "question": "Which value of `position` places an element relative to its normal position?",
+      "options": ["relative", "absolute", "fixed", "static"],
+      "answer": "relative"
+    },
+    {
+      "question": "Which property is used to change the font of an element?",
+      "options": ["font-family", "font-type", "font-style", "font-weight"],
+      "answer": "font-family"
+    },
+    {
+      "question": "What does the `z-index` property control?",
+      "options": [
+        "Stacking order of elements",
+        "Zoom level of elements",
+        "Z-axis size",
+        "Depth of field"
+      ],
+      "answer": "Stacking order of elements"
+    },
+    {
+      "question": "Which CSS value makes an element invisible but still takes up space?",
+      "options": ["visibility: hidden", "display: none", "opacity: 0", "none"],
+      "answer": "visibility: hidden"
+    },
+    {
+      "question": "Which pseudo-class selects the first element of a type?",
+      "options": [":first-of-type", ":first-child", ":nth-child(1)", ":first"],
+      "answer": ":first-of-type"
+    },
+    {
+      "question": "Which property sets the style of the border?",
+      "options": ["border-style", "border-type", "style", "outline-style"],
+      "answer": "border-style"
+    },
+    {
+      "question": "Which CSS layout uses `flex-direction`, `justify-content`, and `align-items`?",
+      "options": ["Flexbox", "Grid", "Block", "Float"],
+      "answer": "Flexbox"
+    },
+    {
+      "question": "How can you apply a class to an HTML element?",
+      "options": [
+        "Using the class attribute",
+        "Using the id attribute",
+        "Using a tag name",
+        "Using a data-type"
+      ],
+      "answer": "Using the class attribute"
+    },
+    {
+      "question": "Which property controls the height of a line of text?",
+      "options": ["line-height", "height", "text-height", "font-height"],
+      "answer": "line-height"
+    },
+    {
+      "question": "What is the default position value in CSS?",
+      "options": ["static", "relative", "absolute", "fixed"],
+      "answer": "static"
+    },
+    {
+      "question": "Which property is used to animate transitions?",
+      "options": ["transition", "animation", "transform", "motion"],
+      "answer": "transition"
+    }
+  ]
+},
+{
+  "name": "React",
+  "image_url": "https://example.com/react.png",
+  "questions": [
+    {
+      "question": "What is the main purpose of React?",
+      "options": [
+        "To build user interfaces",
+        "To design databases",
+        "To style web pages",
+        "To handle server-side logic"
+      ],
+      "answer": "To build user interfaces"
+    },
+    {
+      "question": "What is JSX?",
+      "options": [
+        "JavaScript XML",
+        "Java Syntax Extension",
+        "JSON Extension",
+        "JavaScript Extension Syntax"
+      ],
+      "answer": "JavaScript XML"
+    },
+    {
+      "question": "Which hook is used to manage state in functional components?",
+      "options": ["useState", "useEffect", "useContext", "useReducer"],
+      "answer": "useState"
+    },
+    {
+      "question": "Which hook is used to perform side effects in functional components?",
+      "options": ["useEffect", "useState", "useMemo", "useCallback"],
+      "answer": "useEffect"
+    },
+    {
+      "question": "What is a component in React?",
+      "options": [
+        "A reusable piece of UI",
+        "A CSS style",
+        "A JavaScript class only",
+        "A data model"
+      ],
+      "answer": "A reusable piece of UI"
+    },
+    {
+      "question": "What is the virtual DOM?",
+      "options": [
+        "A lightweight JavaScript representation of the real DOM",
+        "A DOM on the server",
+        "The same as the real DOM",
+        "An outdated concept in React"
+      ],
+      "answer": "A lightweight JavaScript representation of the real DOM"
+    },
+    {
+      "question": "What does `props` stand for?",
+      "options": [
+        "Properties",
+        "Prototypes",
+        "Processors",
+        "Processes"
+      ],
+      "answer": "Properties"
+    },
+    {
+      "question": "How do you pass data from a parent to a child component?",
+      "options": [
+        "Using props",
+        "Using state",
+        "Using events",
+        "Using hooks"
+      ],
+      "answer": "Using props"
+    },
+    {
+      "question": "Which lifecycle method is invoked after a component is rendered?",
+      "options": [
+        "componentDidMount",
+        "constructor",
+        "componentWillMount",
+        "render"
+      ],
+      "answer": "componentDidMount"
+    },
+    {
+      "question": "Which method is used to render a React element to the DOM?",
+      "options": [
+        "ReactDOM.render()",
+        "renderComponent()",
+        "React.create()",
+        "React.append()"
+      ],
+      "answer": "ReactDOM.render()"
+    },
+    {
+      "question": "How do you handle events in React?",
+      "options": [
+        "Using camelCase syntax and passing a function",
+        "Using snake_case and string handlers",
+        "Using inline HTML event handlers",
+        "Using external script files"
+      ],
+      "answer": "Using camelCase syntax and passing a function"
+    },
+    {
+      "question": "What is the correct way to create a functional component?",
+      "options": [
+        "function MyComponent() { return <div />; }",
+        "component MyComponent() {}",
+        "create MyComponent() {}",
+        "new MyComponent() => {}"
+      ],
+      "answer": "function MyComponent() { return <div />; }"
+    },
+    {
+      "question": "What is `useContext` used for?",
+      "options": [
+        "Accessing context values in components",
+        "Creating new components",
+        "Updating state values",
+        "Handling side effects"
+      ],
+      "answer": "Accessing context values in components"
+    },
+    {
+      "question": "What is the default behavior of a React component?",
+      "options": [
+        "It re-renders when props or state change",
+        "It re-renders every second",
+        "It re-renders only on request",
+        "It renders only once"
+      ],
+      "answer": "It re-renders when props or state change"
+    },
+    {
+      "question": "Which tool is commonly used for routing in React?",
+      "options": [
+        "React Router",
+        "Redux",
+        "React DOM",
+        "React Flow"
+      ],
+      "answer": "React Router"
+    },
+    {
+      "question": "Which statement about keys in React lists is true?",
+      "options": [
+        "Keys help React identify which items have changed",
+        "Keys are required only for styling",
+        "Keys are global identifiers",
+        "Keys must always be strings"
+      ],
+      "answer": "Keys help React identify which items have changed"
+    },
+    {
+      "question": "What is `useRef` used for?",
+      "options": [
+        "Accessing or modifying a DOM element",
+        "Managing routing",
+        "Triggering side effects",
+        "Defining global styles"
+      ],
+      "answer": "Accessing or modifying a DOM element"
+    },
+    {
+      "question": "Which statement best describes React?",
+      "options": [
+        "A library for building composable UI components",
+        "A full-stack framework",
+        "A database query language",
+        "An animation library"
+      ],
+      "answer": "A library for building composable UI components"
+    },
+    {
+      "question": "What is the purpose of `useMemo`?",
+      "options": [
+        "To optimize performance by memoizing values",
+        "To trigger re-renders",
+        "To fetch API data",
+        "To create refs"
+      ],
+      "answer": "To optimize performance by memoizing values"
+    },
+    {
+      "question": "Which feature of React makes it declarative?",
+      "options": [
+        "You describe what UI should look like and React takes care of updating it",
+        "You write imperative DOM manipulation code",
+        "It only works with class components",
+        "It avoids all side effects"
+      ],
+      "answer": "You describe what UI should look like and React takes care of updating it"
+    }
+  ]
+},
+{
+  "name": "Node.js",
+  "image_url": "https://example.com/node.png",
+  "questions": [
+    {
+      "question": "What is Node.js primarily used for?",
+      "options": [
+        "Building server-side applications",
+        "Designing user interfaces",
+        "Querying databases",
+        "Creating mobile apps"
+      ],
+      "answer": "Building server-side applications"
+    },
+    {
+      "question": "Which JavaScript engine does Node.js use?",
+      "options": ["V8", "SpiderMonkey", "Chakra", "Rhino"],
+      "answer": "V8"
+    },
+    {
+      "question": "What is `npm`?",
+      "options": [
+        "Node Package Manager",
+        "Node Programming Method",
+        "Network Performance Module",
+        "Native Plugin Middleware"
+      ],
+      "answer": "Node Package Manager"
+    },
+    {
+      "question": "Which keyword is used to import a module in Node.js (CommonJS)?",
+      "options": ["require", "import", "include", "fetch"],
+      "answer": "require"
+    },
+    {
+      "question": "Node.js is designed to be:",
+      "options": [
+        "Asynchronous and non-blocking",
+        "Multithreaded and blocking",
+        "Synchronous and slow",
+        "Blocking and single-threaded"
+      ],
+      "answer": "Asynchronous and non-blocking"
+    },
+    {
+      "question": "What module is used to create a web server in Node.js?",
+      "options": ["http", "fs", "path", "dns"],
+      "answer": "http"
+    },
+    {
+      "question": "Which of the following is a built-in Node.js module?",
+      "options": ["fs", "express", "react", "lodash"],
+      "answer": "fs"
+    },
+    {
+      "question": "What is the purpose of the `fs` module?",
+      "options": [
+        "To handle file system operations",
+        "To manage forms",
+        "To fetch remote data",
+        "To format strings"
+      ],
+      "answer": "To handle file system operations"
+    },
+    {
+      "question": "What does `event-driven` mean in Node.js?",
+      "options": [
+        "Operations are triggered by emitted events",
+        "Threads wait for each other",
+        "Every function runs in a new thread",
+        "Events are stored in a database"
+      ],
+      "answer": "Operations are triggered by emitted events"
+    },
+    {
+      "question": "Which method is used to read a file asynchronously in Node.js?",
+      "options": ["fs.readFile", "fs.readSync", "fs.openFile", "fs.readDocument"],
+      "answer": "fs.readFile"
+    },
+    {
+      "question": "What is the entry point file commonly used in Node.js apps?",
+      "options": ["index.js", "main.html", "server.json", "app.css"],
+      "answer": "index.js"
+    },
+    {
+      "question": "What is middleware in the context of Node.js (Express)?",
+      "options": [
+        "A function with access to request and response objects",
+        "A plugin to manage databases",
+        "A client-side library",
+        "A method for DOM manipulation"
+      ],
+      "answer": "A function with access to request and response objects"
+    },
+    {
+      "question": "What is the default scope of variables in Node.js modules?",
+      "options": [
+        "Module scope",
+        "Global scope",
+        "Function scope",
+        "Thread scope"
+      ],
+      "answer": "Module scope"
+    },
+    {
+      "question": "Which statement correctly creates an HTTP server?",
+      "options": [
+        "http.createServer((req, res) => {}).listen(3000);",
+        "createServer(http, 3000);",
+        "new Server().listen(3000);",
+        "startServer(3000);"
+      ],
+      "answer": "http.createServer((req, res) => {}).listen(3000);"
+    },
+    {
+      "question": "Which Node.js module allows you to work with file and directory paths?",
+      "options": ["path", "url", "http", "os"],
+      "answer": "path"
+    },
+    {
+      "question": "Which command initializes a new Node.js project?",
+      "options": ["npm init", "node start", "npm install", "init node"],
+      "answer": "npm init"
+    },
+    {
+      "question": "What does `process` represent in Node.js?",
+      "options": [
+        "The current Node.js process",
+        "A browser window",
+        "A database connection",
+        "An HTTP request"
+      ],
+      "answer": "The current Node.js process"
+    },
+    {
+      "question": "Which Node.js feature handles concurrency efficiently?",
+      "options": [
+        "Event loop",
+        "Multithreading",
+        "Database pooling",
+        "Forking"
+      ],
+      "answer": "Event loop"
+    },
+    {
+      "question": "What is `package.json` used for?",
+      "options": [
+        "Managing project metadata and dependencies",
+        "Styling UI components",
+        "Handling API authentication",
+        "Serving HTML pages"
+      ],
+      "answer": "Managing project metadata and dependencies"
+    },
+    {
+      "question": "What does `require('express')` do?",
+      "options": [
+        "Loads the Express module",
+        "Compiles an HTML file",
+        "Starts a database service",
+        "Encrypts user passwords"
+      ],
+      "answer": "Loads the Express module"
+    }
+  ]
+},
+{
+  "name": "MongoDB",
+  "image_url": "https://example.com/mongo.png",
+  "questions": [
+    {
+      "question": "What type of database is MongoDB?",
+      "options": [
+        "Document-oriented",
+        "Relational",
+        "Graph-based",
+        "Key-value"
+      ],
+      "answer": "Document-oriented"
+    },
+    {
+      "question": "Which language is MongoDB's query language similar to?",
+      "options": [
+        "JavaScript",
+        "SQL",
+        "Python",
+        "PHP"
+      ],
+      "answer": "JavaScript"
+    },
+    {
+      "question": "What is the equivalent of a 'row' in MongoDB?",
+      "options": [
+        "Document",
+        "Collection",
+        "Field",
+        "Schema"
+      ],
+      "answer": "Document"
+    },
+    {
+      "question": "What does a MongoDB collection store?",
+      "options": [
+        "Documents",
+        "Tables",
+        "Schemas",
+        "Indexes"
+      ],
+      "answer": "Documents"
+    },
+    {
+      "question": "Which command is used to retrieve all documents from a collection?",
+      "options": [
+        "db.collection.find()",
+        "db.collection.get()",
+        "db.collection.retrieve()",
+        "db.collection.query()"
+      ],
+      "answer": "db.collection.find()"
+    },
+    {
+      "question": "What is a primary key in MongoDB called?",
+      "options": [
+        "_id",
+        "primary_id",
+        "key_id",
+        "mongo_id"
+      ],
+      "answer": "_id"
+    },
+    {
+      "question": "Which method is used to insert a single document?",
+      "options": [
+        "insertOne()",
+        "insertSingle()",
+        "addDocument()",
+        "pushOne()"
+      ],
+      "answer": "insertOne()"
+    },
+    {
+      "question": "Which MongoDB feature allows horizontal scaling?",
+      "options": [
+        "Sharding",
+        "Indexing",
+        "Replication",
+        "Schema validation"
+      ],
+      "answer": "Sharding"
+    },
+    {
+      "question": "Which feature of MongoDB ensures high availability?",
+      "options": [
+        "Replication",
+        "Sharding",
+        "Aggregation",
+        "Backup"
+      ],
+      "answer": "Replication"
+    },
+    {
+      "question": "What is a replica set?",
+      "options": [
+        "A group of MongoDB servers maintaining the same data",
+        "A set of sharded collections",
+        "A collection of indexes",
+        "A data backup system"
+      ],
+      "answer": "A group of MongoDB servers maintaining the same data"
+    },
+    {
+      "question": "Which command is used to update a document?",
+      "options": [
+        "updateOne()",
+        "editDocument()",
+        "modify()",
+        "change()"
+      ],
+      "answer": "updateOne()"
+    },
+    {
+      "question": "What is the purpose of indexing in MongoDB?",
+      "options": [
+        "To improve query performance",
+        "To format documents",
+        "To create relationships",
+        "To store backups"
+      ],
+      "answer": "To improve query performance"
+    },
+    {
+      "question": "What data format does MongoDB store data in?",
+      "options": [
+        "BSON",
+        "JSON",
+        "XML",
+        "CSV"
+      ],
+      "answer": "BSON"
+    },
+    {
+      "question": "Which MongoDB operation is used to remove a document?",
+      "options": [
+        "deleteOne()",
+        "remove()",
+        "drop()",
+        "clear()"
+      ],
+      "answer": "deleteOne()"
+    },
+    {
+      "question": "What does the aggregation framework do?",
+      "options": [
+        "Processes data records and returns computed results",
+        "Manages document schemas",
+        "Handles authentication",
+        "Creates indexes"
+      ],
+      "answer": "Processes data records and returns computed results"
+    },
+    {
+      "question": "What is the purpose of the `$match` stage in aggregation?",
+      "options": [
+        "Filters documents",
+        "Sorts documents",
+        "Groups documents",
+        "Joins collections"
+      ],
+      "answer": "Filters documents"
+    },
+    {
+      "question": "What is a capped collection?",
+      "options": [
+        "A fixed-size collection that overwrites the oldest data",
+        "A read-only collection",
+        "A collection with a size limit but no overwrite",
+        "A collection that can’t have indexes"
+      ],
+      "answer": "A fixed-size collection that overwrites the oldest data"
+    },
+    {
+      "question": "Which command lists all collections in a database?",
+      "options": [
+        "db.getCollectionNames()",
+        "db.listCollections()",
+        "show collections",
+        "db.getCollections()"
+      ],
+      "answer": "show collections"
+    },
+    {
+      "question": "How do you create an index in MongoDB?",
+      "options": [
+        "db.collection.createIndex({ field: 1 })",
+        "create index on db.collection(field)",
+        "db.index({ field })",
+        "db.collection.addIndex(field)"
+      ],
+      "answer": "db.collection.createIndex({ field: 1 })"
+    },
+    {
+      "question": "Which shell or interface is commonly used to interact with MongoDB?",
+      "options": [
+        "mongo shell",
+        "mongo-cli",
+        "mongo-query",
+        "mongo-interface"
+      ],
+      "answer": "mongo shell"
+    }
+  ]
+},
+{
+  "name": "MySQL",
+  "image_url": "https://example.com/mysql.png",
+  "questions": [
+    {
+      "question": "What type of database is MySQL?",
+      "options": ["Relational", "Document", "Graph", "Key-Value"],
+      "answer": "Relational"
+    },
+    {
+      "question": "Which command is used to retrieve data from a MySQL table?",
+      "options": ["SELECT", "RETRIEVE", "GET", "FETCH"],
+      "answer": "SELECT"
+    },
+    {
+      "question": "Which keyword is used to sort the result set?",
+      "options": ["ORDER BY", "GROUP BY", "SORT BY", "ARRANGE BY"],
+      "answer": "ORDER BY"
+    },
+    {
+      "question": "What does the PRIMARY KEY constraint do?",
+      "options": [
+        "Ensures unique and not null values",
+        "Allows null values",
+        "Creates an index without uniqueness",
+        "Automatically inserts data"
+      ],
+      "answer": "Ensures unique and not null values"
+    },
+    {
+      "question": "Which JOIN returns only matching rows from both tables?",
+      "options": ["INNER JOIN", "LEFT JOIN", "RIGHT JOIN", "FULL JOIN"],
+      "answer": "INNER JOIN"
+    },
+    {
+      "question": "What is the default port used by MySQL?",
+      "options": ["3306", "1433", "1521", "5432"],
+      "answer": "3306"
+    },
+    {
+      "question": "Which command is used to add a new row in a table?",
+      "options": ["INSERT INTO", "ADD ROW", "NEW ROW", "CREATE ROW"],
+      "answer": "INSERT INTO"
+    },
+    {
+      "question": "What is the purpose of the WHERE clause?",
+      "options": [
+        "To filter rows based on conditions",
+        "To sort data",
+        "To group data",
+        "To insert data"
+      ],
+      "answer": "To filter rows based on conditions"
+    },
+    {
+      "question": "Which statement is used to remove a table?",
+      "options": ["DROP TABLE", "DELETE TABLE", "REMOVE TABLE", "TRUNCATE"],
+      "answer": "DROP TABLE"
+    },
+    {
+      "question": "What is normalization in MySQL?",
+      "options": [
+        "Process of reducing data redundancy",
+        "Increasing data replication",
+        "Encrypting data",
+        "Improving query speed by denormalization"
+      ],
+      "answer": "Process of reducing data redundancy"
+    },
+    {
+      "question": "What does the SQL function COUNT(*) do?",
+      "options": [
+        "Returns the total number of rows",
+        "Counts only unique values",
+        "Returns the sum of a column",
+        "Counts null values only"
+      ],
+      "answer": "Returns the total number of rows"
+    },
+    {
+      "question": "Which clause groups rows that have the same values into summary rows?",
+      "options": ["GROUP BY", "ORDER BY", "FILTER BY", "COLLATE BY"],
+      "answer": "GROUP BY"
+    },
+    {
+      "question": "Which command removes all data but retains the structure of the table?",
+      "options": ["TRUNCATE", "DELETE", "DROP", "REMOVE"],
+      "answer": "TRUNCATE"
+    },
+    {
+      "question": "Which command is used to change an existing record?",
+      "options": ["UPDATE", "MODIFY", "CHANGE", "ALTER"],
+      "answer": "UPDATE"
+    },
+    {
+      "question": "What is the InnoDB storage engine known for?",
+      "options": [
+        "Supporting transactions and foreign keys",
+        "High speed but no transaction support",
+        "Read-only operations",
+        "File-level locking"
+      ],
+      "answer": "Supporting transactions and foreign keys"
+    },
+    {
+      "question": "What is the default storage engine for MySQL 8+?",
+      "options": ["InnoDB", "MyISAM", "Memory", "CSV"],
+      "answer": "InnoDB"
+    },
+    {
+      "question": "Which function returns the current date and time?",
+      "options": ["NOW()", "CURDATE()", "SYSDATE()", "DATE()"],
+      "answer": "NOW()"
+    },
+    {
+      "question": "Which command is used to modify the structure of a table?",
+      "options": ["ALTER TABLE", "MODIFY TABLE", "UPDATE TABLE", "RESTRUCTURE TABLE"],
+      "answer": "ALTER TABLE"
+    },
+    {
+      "question": "Which index type helps improve full-text searches in MySQL?",
+      "options": ["FULLTEXT", "HASH", "BTREE", "SPATIAL"],
+      "answer": "FULLTEXT"
+    },
+    {
+      "question": "What is a foreign key used for?",
+      "options": [
+        "To enforce referential integrity between tables",
+        "To speed up full-text search",
+        "To create a copy of a table",
+        "To manage users"
+      ],
+      "answer": "To enforce referential integrity between tables"
+    }
+  ]
+},
+{
+  "name": "PHP",
+  "image_url": "https://example.com/php.png",
+  "questions": [
+    {
+      "question": "What does PHP stand for?",
+      "options": ["Personal Home Page", "PHP: Hypertext Preprocessor", "Preprocessed HTML Page", "Private Hosting Protocol"],
+      "answer": "PHP: Hypertext Preprocessor"
+    },
+    {
+      "question": "Which symbol is used to declare a variable in PHP?",
+      "options": ["$", "#", "@", "&"],
+      "answer": "$"
+    },
+    {
+      "question": "What function is used to output text in PHP?",
+      "options": ["echo", "write", "print_text", "output"],
+      "answer": "echo"
+    },
+    {
+      "question": "Which of the following is a valid way to start a PHP block?",
+      "options": ["<?php", "<php>", "<?=", "<?script"],
+      "answer": "<?php"
+    },
+    {
+      "question": "How are arrays defined in PHP?",
+      "options": ["array()", "list()", "set()", "collection()"],
+      "answer": "array()"
+    },
+    {
+      "question": "Which function is used to include another file in PHP only once?",
+      "options": ["include_once", "require_once", "load_once", "file_once"],
+      "answer": "include_once"
+    },
+    {
+      "question": "What is the correct way to define a constant in PHP?",
+      "options": ["define('NAME', 'value')", "const NAME = 'value';", "constant NAME = 'value';", "setconst(NAME, 'value')"],
+      "answer": "define('NAME', 'value')"
+    },
+    {
+      "question": "What will `strlen('PHP')` return?",
+      "options": ["3", "4", "2", "Undefined"],
+      "answer": "3"
+    },
+    {
+      "question": "Which superglobal is used to collect form data after submitting an HTML form with method='post'?",
+      "options": ["$_POST", "$POST", "$_FORM", "$_DATA"],
+      "answer": "$_POST"
+    },
+    {
+      "question": "Which of the following is used to handle exceptions in PHP?",
+      "options": ["try-catch", "error-catch", "try-throw", "trap-catch"],
+      "answer": "try-catch"
+    },
+    {
+      "question": "What is the result of 5 === '5' in PHP?",
+      "options": ["false", "true", "error", "null"],
+      "answer": "false"
+    },
+    {
+      "question": "Which keyword is used to define a class in PHP?",
+      "options": ["class", "struct", "type", "object"],
+      "answer": "class"
+    },
+    {
+      "question": "What is the default file extension for PHP files?",
+      "options": [".php", ".html", ".phpx", ".phtml"],
+      "answer": ".php"
+    },
+    {
+      "question": "Which function is used to start a session in PHP?",
+      "options": ["session_start()", "start_session()", "begin_session()", "session_begin()"],
+      "answer": "session_start()"
+    },
+    {
+      "question": "Which of the following is not a data type in PHP?",
+      "options": ["resource", "string", "tuple", "array"],
+      "answer": "tuple"
+    },
+    {
+      "question": "Which operator is used for string concatenation in PHP?",
+      "options": [".", "+", "&", "::"],
+      "answer": "."
+    },
+    {
+      "question": "How do you define a function in PHP?",
+      "options": ["function myFunc() {}", "func myFunc() {}", "define myFunc() {}", "method myFunc() {}"],
+      "answer": "function myFunc() {}"
+    },
+    {
+      "question": "Which global array contains server and execution environment information?",
+      "options": ["$_SERVER", "$_ENV", "$GLOBALS", "$_SESSION"],
+      "answer": "$_SERVER"
+    },
+    {
+      "question": "Which function is used to redirect the browser to another page?",
+      "options": ["header('Location:...')", "redirect(...)", "goto(...)", "navigate(...)"],
+      "answer": "header('Location:...')"
+    },
+    {
+      "question": "What does `isset()` check?",
+      "options": ["If a variable is set and not null", "If a variable exists", "If a variable is a string", "If a function exists"],
+      "answer": "If a variable is set and not null"
+    }
+  ]
+},
+{
+  "name": "Git",
+  "image_url": "https://example.com/git.png",
+  "questions": [
+    {
+      "question": "What is Git primarily used for?",
+      "options": ["File compression", "Version control", "Database management", "Cloud storage"],
+      "answer": "Version control"
+    },
+    {
+      "question": "Which command is used to check the current status of the repository?",
+      "options": ["git show", "git status", "git diff", "git check"],
+      "answer": "git status"
+    },
+    {
+      "question": "What command initializes a new Git repository?",
+      "options": ["git init", "git start", "git create", "git begin"],
+      "answer": "git init"
+    },
+    {
+      "question": "Which command stages changes for the next commit?",
+      "options": ["git add", "git commit", "git stage", "git push"],
+      "answer": "git add"
+    },
+    {
+      "question": "How do you commit staged changes with a message?",
+      "options": ["git commit -m 'message'", "git save 'message'", "git stage -m 'message'", "git update 'message'"],
+      "answer": "git commit -m 'message'"
+    },
+    {
+      "question": "Which command is used to view commit history?",
+      "options": ["git log", "git history", "git commits", "git trace"],
+      "answer": "git log"
+    },
+    {
+      "question": "What is the purpose of `.gitignore`?",
+      "options": ["To ignore file permissions", "To exclude files from version control", "To track all files", "To store commit messages"],
+      "answer": "To exclude files from version control"
+    },
+    {
+      "question": "Which command downloads a repository from a remote server?",
+      "options": ["git pull", "git clone", "git fetch", "git copy"],
+      "answer": "git clone"
+    },
+    {
+      "question": "Which Git command uploads local changes to a remote repository?",
+      "options": ["git push", "git upload", "git transfer", "git deploy"],
+      "answer": "git push"
+    },
+    {
+      "question": "What is a Git branch used for?",
+      "options": ["To duplicate a repository", "To separate lines of development", "To store database backups", "To format code"],
+      "answer": "To separate lines of development"
+    },
+    {
+      "question": "How do you create a new branch in Git?",
+      "options": ["git branch <name>", "git new <name>", "git checkout <name>", "git create <name>"],
+      "answer": "git branch <name>"
+    },
+    {
+      "question": "Which command is used to switch branches?",
+      "options": ["git switch <name>", "git move <name>", "git transfer <name>", "git go <name>"],
+      "answer": "git switch <name>"
+    },
+    {
+      "question": "What does `git merge` do?",
+      "options": ["Deletes a branch", "Combines two branches", "Commits code", "Pushes changes"],
+      "answer": "Combines two branches"
+    },
+    {
+      "question": "Which command fetches and integrates changes from the remote repository?",
+      "options": ["git pull", "git fetch", "git clone", "git sync"],
+      "answer": "git pull"
+    },
+    {
+      "question": "What is the purpose of `git stash`?",
+      "options": ["To save changes temporarily", "To delete changes", "To commit automatically", "To view logs"],
+      "answer": "To save changes temporarily"
+    },
+    {
+      "question": "What is a remote in Git?",
+      "options": ["A plugin for Git", "A versioned database", "A repository hosted elsewhere", "A disconnected commit"],
+      "answer": "A repository hosted elsewhere"
+    },
+    {
+      "question": "How do you view configured remotes?",
+      "options": ["git remote -v", "git config -v", "git remote list", "git show-remote"],
+      "answer": "git remote -v"
+    },
+    {
+      "question": "What does HEAD represent in Git?",
+      "options": ["The first commit", "The latest remote branch", "The currently checked out commit", "The default branch name"],
+      "answer": "The currently checked out commit"
+    },
+    {
+      "question": "How do you discard all local changes in the working directory?",
+      "options": ["git checkout -- .", "git clean", "git delete", "git clear"],
+      "answer": "git checkout -- ."
+    },
+    {
+      "question": "What is a fast-forward merge?",
+      "options": ["A merge that skips commit history", "A merge with no conflicts", "A direct pointer update to the latest commit", "A parallel rebase"],
+      "answer": "A direct pointer update to the latest commit"
+    }
+  ]
+},
+{
+  "name": "Web Security",
+  "image_url": "https://example.com/security.png",
+  "questions": [
+    {
+      "question": "What does XSS stand for in web security?",
+      "options": ["Cross Site Scripting", "Extra Secure Session", "Extended Security Standards", "Cross Server Security"],
+      "answer": "Cross Site Scripting"
+    },
+    {
+      "question": "Which HTTP header helps prevent clickjacking attacks?",
+      "options": ["X-Content-Type-Options", "X-Frame-Options", "Strict-Transport-Security", "Content-Security-Policy"],
+      "answer": "X-Frame-Options"
+    },
+    {
+      "question": "What is the primary goal of input validation?",
+      "options": ["Improve performance", "Prevent user errors", "Avoid server crashes", "Prevent injection attacks"],
+      "answer": "Prevent injection attacks"
+    },
+    {
+      "question": "What does CSRF stand for?",
+      "options": ["Cross Site Resource Fetching", "Cross Site Request Forgery", "Client-Side Request Function", "Content Security Request Filter"],
+      "answer": "Cross Site Request Forgery"
+    },
+    {
+      "question": "Which is a recommended strategy to store passwords securely?",
+      "options": ["Plaintext", "Base64 encoding", "MD5 hashing", "Hashing with salt"],
+      "answer": "Hashing with salt"
+    },
+    {
+      "question": "Which protocol ensures encrypted communication over the web?",
+      "options": ["FTP", "HTTP", "HTTPS", "SSH"],
+      "answer": "HTTPS"
+    },
+    {
+      "question": "What type of attack does the Content Security Policy (CSP) mitigate?",
+      "options": ["Brute force", "SQL Injection", "Cross Site Scripting", "Man-in-the-middle"],
+      "answer": "Cross Site Scripting"
+    },
+    {
+      "question": "What is a common symptom of a SQL injection vulnerability?",
+      "options": ["Insecure password reset", "Unexpected query results", "Slow page loading", "Excessive API calls"],
+      "answer": "Unexpected query results"
+    },
+    {
+      "question": "Which method helps prevent session hijacking?",
+      "options": ["Caching responses", "Disabling cookies", "Using session tokens", "Minifying scripts"],
+      "answer": "Using session tokens"
+    },
+    {
+      "question": "Which tool is commonly used for penetration testing?",
+      "options": ["Figma", "Nmap", "Photoshop", "Docker"],
+      "answer": "Nmap"
+    },
+    {
+      "question": "What is the purpose of the `SameSite` cookie attribute?",
+      "options": ["Restrict cookie lifetime", "Allow subdomain access", "Prevent CSRF", "Encrypt cookie contents"],
+      "answer": "Prevent CSRF"
+    },
+    {
+      "question": "What kind of attack exploits a web app that reflects input directly in the response?",
+      "options": ["Stored XSS", "Reflected XSS", "Blind SQL Injection", "DoS"],
+      "answer": "Reflected XSS"
+    },
+    {
+      "question": "Which of the following is NOT a secure authentication method?",
+      "options": ["Multi-factor authentication", "OAuth 2.0", "Using plaintext passwords", "JWT tokens"],
+      "answer": "Using plaintext passwords"
+    },
+    {
+      "question": "What is the OWASP Top 10?",
+      "options": ["A ranking of SSL certificates", "A list of browser exploits", "A standard awareness document for developers", "A code testing framework"],
+      "answer": "A standard awareness document for developers"
+    },
+    {
+      "question": "Which attack targets the integrity of user sessions?",
+      "options": ["Session fixation", "XSS", "Clickjacking", "SQL Injection"],
+      "answer": "Session fixation"
+    },
+    {
+      "question": "What is the main purpose of rate limiting?",
+      "options": ["Improve database performance", "Reduce server logs", "Prevent brute-force and DoS attacks", "Allow API versioning"],
+      "answer": "Prevent brute-force and DoS attacks"
+    },
+    {
+      "question": "Which security header enforces HTTPS in browsers?",
+      "options": ["X-Frame-Options", "Strict-Transport-Security", "Referrer-Policy", "X-XSS-Protection"],
+      "answer": "Strict-Transport-Security"
+    },
+    {
+      "question": "Which of the following best protects against replay attacks?",
+      "options": ["Using nonces or timestamps", "Encrypting user inputs", "Sanitizing inputs", "Minifying JavaScript"],
+      "answer": "Using nonces or timestamps"
+    },
+    {
+      "question": "What is a common vulnerability caused by unsanitized user input in dynamic SQL queries?",
+      "options": ["Buffer overflow", "Man-in-the-middle", "SQL Injection", "Cross-Origin Resource Sharing"],
+      "answer": "SQL Injection"
+    },
+    {
+      "question": "Which of the following helps validate the identity of a web server?",
+      "options": ["Captcha", "SSL/TLS certificate", "Firewall", "JavaScript token"],
+      "answer": "SSL/TLS certificate"
+    }
+  ]
+}
+]
