@@ -31,7 +31,20 @@ const getQuestions = async (req, res) => {
       }
     ]);
 
-    res.json(questions);
+    // Utility to shuffle options
+    const shuffleArray = (array) => {
+      return array
+        .map((value) => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
+    };
+
+    const shuffledQuestions = questions.map((q) => ({
+      ...q,
+      options: shuffleArray(q.options), // shuffled options
+    }));
+
+    res.json(shuffledQuestions);
   } catch (err) {
     console.error("Error fetching random questions:", err);
     res.status(500).json({ msg: "Error fetching questions" });
