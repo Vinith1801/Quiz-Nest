@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../auth/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Signup = () => {
   const { signup } = useAuth();
@@ -9,15 +9,88 @@ const Signup = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [usernameFocused, setUsernameFocused] = useState(false);
+  const [passwordFocused, setPasswordFocused] = useState(false);
+  const [usernameValid, setUsernameValid] = useState({
+    length: false,
+    format: false,
+  });
+
+  const [passwordValid, setPasswordValid] = useState({
+    length: false,
+    uppercase: false,
+    lowercase: false,
+    number: false,
+    specialChar: false,
+  });
+
+  // Regex patterns for validation
+  const usernameRegex = /^[a-zA-Z0-9_@]+$/; // Alphanumeric + _ @
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/; // Strong password
+
+  // Validation helper
+  const validateForm = () => {
+    const { username, password } = formData;
+
+    // Username validations
+    if (!username || username.trim().length < 4 || username.trim().length > 20) {
+      return "Username must be at least 4 characters long and It can be up to 20 characters.";
+    }
+    if (!usernameRegex.test(username.trim())) {
+      return "Username can only contain letters, numbers, underscores (_) and @ symbol.";
+    }
+
+    // Password validations
+    if (!password || password.length < 6) {
+      return "Password must be at least 6 characters long.";
+    }
+    if (!passwordRegex.test(password)) {
+      return "Password must include uppercase, lowercase, number, and special character.";
+    }
+
+    // All validations passed
+    return null;
+  };
+
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    if (name === "username") {
+      const trimmed = value.trim();
+      setUsernameValid({
+        length: trimmed.length >= 4 && trimmed.length <= 20,
+        format: usernameRegex.test(trimmed),
+      });
+    }
+
+    if (name === "password") {
+      setPasswordValid({
+        length: value.length >= 6,
+        uppercase: /[A-Z]/.test(value),
+        lowercase: /[a-z]/.test(value),
+        number: /\d/.test(value),
+        specialChar: /[@#$%^&+=!]/.test(value),
+      });
+    }
+
+    setError(""); // Clear error on input change
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setError("");
+
+    // Frontend validation
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
+    setLoading(true);
     try {
       await signup(formData);
       navigate("/profile");
@@ -27,6 +100,22 @@ const Signup = () => {
       setLoading(false);
     }
   };
+
+const renderHint = (valid, label, index) => (
+  <motion.li
+    key={label}
+    initial={{ opacity: 0, x: -10 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -10 }}
+    transition={{ delay: index * 0.05, duration: 0.25 }}
+    className={`flex items-center gap-2 text-sm ${valid ? "text-green-600" : "text-gray-500"}`}
+  >
+    <span className={`w-2.5 h-2.5 rounded-full ${valid ? "bg-green-500" : "bg-gray-400"}`}></span>
+    {label}
+  </motion.li>
+);
+
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-purple-200 p-4">
@@ -44,22 +133,74 @@ const Signup = () => {
             name="username"
             placeholder="Username"
             onChange={handleChange}
+            value={formData.username}
             required
             disabled={loading}
             className={`w-full px-4 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400
               ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+            onFocus={() => setUsernameFocused(true)}
+            onBlur={() => setUsernameFocused(false)}
           />
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={handleChange}
-            required
-            disabled={loading}
-            className={`w-full px-4 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400
-              ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
-          />
+<AnimatePresence mode="wait">
+  {usernameFocused && Object.values(usernameValid).some((v) => !v) && (
+    <motion.ul
+      key="username-hints"
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3 }}
+      className="px-4 py-2 mt-2 shadow-inner space-y-1 text-xs"
+    >
+      {renderHint(usernameValid.length, "4–20 characters", 0)}
+      {renderHint(usernameValid.format, "Only letters, numbers, _ and @", 1)}
+    </motion.ul>
+  )}
+</AnimatePresence>
+
+
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              onChange={handleChange}
+              value={formData.password}
+              required
+              disabled={loading}
+              className={`w-full px-4 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400
+                ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+              onFocus={() => setPasswordFocused(true)}
+              onBlur={() => setPasswordFocused(false)}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-purple-600 focus:outline-none"
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </div>
+
+          <AnimatePresence mode="wait">
+  {passwordFocused && Object.values(passwordValid).some((v) => !v) && (
+    <motion.ul
+      key="password-hints"
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3 }}
+      className="px-4 py-2 mt-2 shadow-inner space-y-1 text-xs"
+    >
+      {renderHint(passwordValid.length, "At least 6 characters", 0)}
+      {renderHint(passwordValid.uppercase, "Uppercase letter (A–Z)", 1)}
+      {renderHint(passwordValid.lowercase, "Lowercase letter (a–z)", 2)}
+      {renderHint(passwordValid.number, "At least one number", 3)}
+      {renderHint(passwordValid.specialChar, "Special character (@#$%^&+=!)", 4)}
+    </motion.ul>
+  )}
+</AnimatePresence>
+
 
           {error && (
             <motion.p
@@ -90,9 +231,7 @@ const Signup = () => {
             ) : (
               "Sign Up"
             )}
-
           </motion.button>
-
         </form>
 
         <p className="mt-4 text-sm text-center text-gray-700">
