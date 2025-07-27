@@ -36,7 +36,7 @@ const signup = async (req, res) => {
   }
 
   try {
-    const existing = await User.findOne({ username });
+    const existing = await User.findOne({ username: username.toLowerCase() });
     if (existing) return res.status(400).json({ msg: "Username already exists!" });
 
     const hashedPassword = await bcrypt.hash(password, 10);

@@ -30,8 +30,8 @@ const Signup = () => {
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/; // Strong password
 
   // Validation helper
-  const validateForm = () => {
-    const { username, password } = formData;
+  const validateForm = ( data = formData ) => {
+    const { username, password } = data;
 
     // Username validations
     if (!username || username.trim().length < 4 || username.trim().length > 20) {
@@ -83,8 +83,14 @@ const Signup = () => {
     e.preventDefault();
     setError("");
 
-    // Frontend validation
-    const validationError = validateForm();
+    // Normalize username to lowercase
+    const normalizedData = {
+      ...formData,
+      username: formData.username.trim().toLowerCase(),
+    };
+
+    // Validate using normalized data
+    const validationError = validateForm(normalizedData);
     if (validationError) {
       setError(validationError);
       return;
@@ -92,7 +98,7 @@ const Signup = () => {
 
     setLoading(true);
     try {
-      await signup(formData);
+      await signup(normalizedData);
       navigate("/profile");
     } catch (err) {
       setError(err.response?.data?.msg || "Signup failed");
@@ -101,21 +107,19 @@ const Signup = () => {
     }
   };
 
-const renderHint = (valid, label, index) => (
-  <motion.li
-    key={label}
-    initial={{ opacity: 0, x: -10 }}
-    animate={{ opacity: 1, x: 0 }}
-    exit={{ opacity: 0, x: -10 }}
-    transition={{ delay: index * 0.05, duration: 0.25 }}
-    className={`flex items-center gap-2 text-sm ${valid ? "text-green-600" : "text-gray-500"}`}
-  >
-    <span className={`w-2.5 h-2.5 rounded-full ${valid ? "bg-green-500" : "bg-gray-400"}`}></span>
-    {label}
-  </motion.li>
-);
-
-
+  const renderHint = (valid, label, index) => (
+    <motion.li
+      key={label}
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -10 }}
+      transition={{ delay: index * 0.05, duration: 0.25 }}
+      className={`flex items-center gap-2 text-sm ${valid ? "text-green-600" : "text-gray-500"}`}
+    >
+      <span className={`w-2.5 h-2.5 rounded-full ${valid ? "bg-green-500" : "bg-gray-400"}`}></span>
+      {label}
+    </motion.li>
+  );
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-purple-200 p-4">
@@ -136,28 +140,38 @@ const renderHint = (valid, label, index) => (
             value={formData.username}
             required
             disabled={loading}
+            inputMode="latin"
+            autoCapitalize="off"
             className={`w-full px-4 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400
               ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
             onFocus={() => setUsernameFocused(true)}
             onBlur={() => setUsernameFocused(false)}
           />
 
-<AnimatePresence mode="wait">
-  {usernameFocused && Object.values(usernameValid).some((v) => !v) && (
-    <motion.ul
-      key="username-hints"
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3 }}
-      className="px-4 py-2 mt-2 shadow-inner space-y-1 text-xs"
-    >
-      {renderHint(usernameValid.length, "4–20 characters", 0)}
-      {renderHint(usernameValid.format, "Only letters, numbers, _ and @", 1)}
-    </motion.ul>
-  )}
-</AnimatePresence>
+          <AnimatePresence mode="wait">
+            {usernameFocused && Object.values(usernameValid).some((v) => !v) && (
+              <motion.ul
+                key="username-hints"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="px-4 py-2 mt-2 shadow-inner space-y-1 text-xs"
+              >
+                {renderHint(usernameValid.length, "4–20 characters", 0)}
+                {renderHint(usernameValid.format, "Only letters, numbers, _ and @", 1)}
+              </motion.ul>
+            )}
+          </AnimatePresence>
 
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-xs text-gray-500 px-1 mt-1"
+          >
+            Username will be <span className="font-medium text-gray-700">stored in lowercase</span>.
+          </motion.p>
 
           <div className="relative">
             <input
@@ -183,23 +197,23 @@ const renderHint = (valid, label, index) => (
           </div>
 
           <AnimatePresence mode="wait">
-  {passwordFocused && Object.values(passwordValid).some((v) => !v) && (
-    <motion.ul
-      key="password-hints"
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3 }}
-      className="px-4 py-2 mt-2 shadow-inner space-y-1 text-xs"
-    >
-      {renderHint(passwordValid.length, "At least 6 characters", 0)}
-      {renderHint(passwordValid.uppercase, "Uppercase letter (A–Z)", 1)}
-      {renderHint(passwordValid.lowercase, "Lowercase letter (a–z)", 2)}
-      {renderHint(passwordValid.number, "At least one number", 3)}
-      {renderHint(passwordValid.specialChar, "Special character (@#$%^&+=!)", 4)}
-    </motion.ul>
-  )}
-</AnimatePresence>
+            {passwordFocused && Object.values(passwordValid).some((v) => !v) && (
+              <motion.ul
+                key="password-hints"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="px-4 py-2 mt-2 shadow-inner space-y-1 text-xs"
+              >
+                {renderHint(passwordValid.length, "At least 6 characters", 0)}
+                {renderHint(passwordValid.uppercase, "Uppercase letter (A–Z)", 1)}
+                {renderHint(passwordValid.lowercase, "Lowercase letter (a–z)", 2)}
+                {renderHint(passwordValid.number, "At least one number", 3)}
+                {renderHint(passwordValid.specialChar, "Special character (@#$%^&+=!)", 4)}
+              </motion.ul>
+            )}
+          </AnimatePresence>
 
 
           {error && (
