@@ -3,6 +3,12 @@ import { useAuth } from "../auth/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaUser, FaLock, FaCheckCircle, FaTimesCircle, FaEye, FaEyeSlash } from "react-icons/fa";
+import {
+  usernameRegex,
+  passwordRegex,
+  validateUsername,
+  validatePassword,
+} from "../utils/validators";
 
 const Signup = () => {
   const { signup } = useAuth();
@@ -26,34 +32,17 @@ const Signup = () => {
     specialChar: false,
   });
 
-  // Regex patterns for validation
-  const usernameRegex = /^[a-zA-Z0-9_@]+$/; // Alphanumeric + _ @
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/; // Strong password
-
-  // Validation helper
-  const validateForm = ( data = formData ) => {
+  const validateForm = (data = formData) => {
     const { username, password } = data;
 
-    // Username validations
-    if (!username || username.trim().length < 4 || username.trim().length > 20) {
-      return "Username must be at least 4 characters long and It can be up to 20 characters.";
-    }
-    if (!usernameRegex.test(username.trim())) {
-      return "Username can only contain letters, numbers, underscores (_) and @ symbol.";
-    }
+    const usernameError = validateUsername(username);
+    if (usernameError) return usernameError;
 
-    // Password validations
-    if (!password || password.length < 6) {
-      return "Password must be at least 6 characters long.";
-    }
-    if (!passwordRegex.test(password)) {
-      return "Password must include uppercase, lowercase, number, and special character.";
-    }
+    const passwordError = validatePassword(password);
+    if (passwordError) return passwordError;
 
-    // All validations passed
     return null;
   };
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;

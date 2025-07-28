@@ -3,6 +3,13 @@ import { useAuth } from "../auth/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import LoadingScreen from "../components/LoadingScreen";
+import { FaUser, FaLock } from "react-icons/fa";
+import { IoEye, IoEyeOff } from "react-icons/io5";
+import {
+  validateUsername,
+  validatePassword,
+} from "../utils/validators";
+
 
 const Login = () => {
   const { login } = useAuth();
@@ -18,21 +25,27 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-    try {
-      await login(formData);
-      setShowSplash(true);
-      setTimeout(() => {
-        navigate("/");
-      }, 1500);
-    } catch (err) {
-      setError(err.response?.data?.msg || "Login failed");
-      setLoading(false);
-    }
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const normalizedUsername = formData.username.trim().toLowerCase();
+  const password = formData.password;
+
+  if (!validateUsername(normalizedUsername) || !validatePassword(password)) {
+    setError("Invalid credentials format");
+    return;
+  }
+
+  setLoading(true);
+  try {
+    await login({ username: normalizedUsername, password });
+    navigate("/");
+  } catch (err) {
+    setError(err.response?.data?.message || "Login failed");
+  } finally {
+    setLoading(false);
+  }
+};
 
   if (showSplash) return <LoadingScreen />;
 
@@ -46,20 +59,36 @@ const Login = () => {
       >
         <h1 className="text-2xl font-bold text-center text-blue-800 mb-6">🔐 Login to QuizNest</h1>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            onChange={handleChange}
-            value={formData.username}
-            required
-            disabled={loading}
-            className={`w-full px-4 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-400
-              ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
-          />
+        <form
+          onSubmit={(e) => {
+            if (!loading) handleSubmit(e);
+          }}
+          className="space-y-4"
+        >
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600">
+              <FaUser />
+            </span>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              onChange={handleChange}
+              value={formData.username}
+              required
+              inputMode="latin"
+              autoCapitalize="off"
+              autoCorrect="off"
+              disabled={loading}
+              className={`w-full pl-10 pr-4 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-400
+                ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+            />
+          </div>
 
           <div className="relative">
+            <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600">
+              <FaLock />
+            </span>
             <input
               type={showPassword ? "text" : "password"}
               name="password"
@@ -68,15 +97,15 @@ const Login = () => {
               value={formData.password}
               required
               disabled={loading}
-              className={`w-full px-4 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-400
+              className={`w-full pl-10 pr-10 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-400
                 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
             />
             <button
               type="button"
               onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-purple-600 focus:outline-none"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-xl text-purple-600 focus:outline-none"
             >
-              {showPassword ? "Hide" : "Show"}
+              {showPassword ? <IoEyeOff /> : <IoEye />}
             </button>
           </div>
 
