@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../auth/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaUser, FaLock, FaCheckCircle, FaTimesCircle, FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Signup = () => {
   const { signup } = useAuth();
@@ -116,10 +117,11 @@ const Signup = () => {
       transition={{ delay: index * 0.05, duration: 0.25 }}
       className={`flex items-center gap-2 text-sm ${valid ? "text-green-600" : "text-gray-500"}`}
     >
-      <span className={`w-2.5 h-2.5 rounded-full ${valid ? "bg-green-500" : "bg-gray-400"}`}></span>
+      {valid ? <FaCheckCircle className="text-green-500" /> : <FaTimesCircle className="text-gray-400" />}
       {label}
     </motion.li>
   );
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-white to-purple-200 p-4">
@@ -132,21 +134,24 @@ const Signup = () => {
         <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">✨ Create Account</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            onChange={handleChange}
-            value={formData.username}
-            required
-            disabled={loading}
-            inputMode="latin"
-            autoCapitalize="off"
-            className={`w-full px-4 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400
-              ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
-            onFocus={() => setUsernameFocused(true)}
-            onBlur={() => setUsernameFocused(false)}
-          />
+          <div className="relative">
+            <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600" />
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              onChange={handleChange}
+              value={formData.username}
+              required
+              disabled={loading}
+              inputMode="latin"
+              autoCapitalize="off"
+              className={`w-full pl-10 pr-4 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400
+                ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+              onFocus={() => setUsernameFocused(true)}
+              onBlur={() => setUsernameFocused(false)}
+            />
+          </div>
 
           <AnimatePresence mode="wait">
             {usernameFocused && Object.values(usernameValid).some((v) => !v) && (
@@ -174,6 +179,7 @@ const Signup = () => {
           </motion.p>
 
           <div className="relative">
+            <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600" />
             <input
               type={showPassword ? "text" : "password"}
               name="password"
@@ -182,7 +188,7 @@ const Signup = () => {
               value={formData.password}
               required
               disabled={loading}
-              className={`w-full px-4 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400
+              className={`w-full pl-10 pr-10 py-3 rounded-xl bg-white/40 placeholder-gray-600 text-gray-800 border border-white/30 shadow-inner focus:outline-none focus:ring-2 focus:ring-purple-400
                 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
               onFocus={() => setPasswordFocused(true)}
               onBlur={() => setPasswordFocused(false)}
@@ -190,9 +196,9 @@ const Signup = () => {
             <button
               type="button"
               onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-purple-600 focus:outline-none"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-purple-600 focus:outline-none"
             >
-              {showPassword ? "Hide" : "Show"}
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
 
@@ -214,7 +220,6 @@ const Signup = () => {
               </motion.ul>
             )}
           </AnimatePresence>
-
 
           {error && (
             <motion.p
