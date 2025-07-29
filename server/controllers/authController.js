@@ -28,7 +28,9 @@ if (!passwordRegex.test(password)) {
 };
 
 const signup = async (req, res) => {
-  const { username, password } = req.body;
+  let { username, password } = req.body;
+
+  username = username.trim().toLowerCase();
 
   const validationErrors = validateSignup(username, password);
   if (validationErrors.length > 0) {
@@ -36,34 +38,38 @@ const signup = async (req, res) => {
   }
 
   try {
-    const existingUser  = await User.findOne({ username: username.toLowerCase() });
+    const existingUser  = await User.findOne({ username: username});
     if (existingUser ) return res.status(400).json({ msg: "Username already exists!" });
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username: username.toLowerCase(), password: hashedPassword });
+    const newUser = new User({ username, password: hashedPassword });
 
     const token = generateToken(newUser);
     res.json({ token, username: newUser.username });
   } catch (err) {
+    console.error("Signup Error:", err);
     res.status(500).json({ msg: "Server error" });
   }
 };
 
 const login = async (req, res) => {
-  const { username, password } = req.body;
+  let { username, password } = req.body;
 
   if (!username || !password) {
     return res.status(400).json({ msg: "Username and password are required." });
   }
 
+  username = username.trim().toLowerCase();
+
   try {
-    const user = await User.findOne({ username: username.toLowerCase() });
+    const user = await User.findOne({ username });
     if (!user || !(await bcrypt.compare(password, user.password))) {
      return res.status(400).json({ msg: "Invalid credentials" });
     }
     const token = generateToken(user);
     res.json({ token, username: user.username });
   } catch (err) {
+    console.error("Login Error:", err); 
     res.status(500).json({ msg: "Server error" });
   }
 };
