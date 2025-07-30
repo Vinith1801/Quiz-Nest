@@ -76,9 +76,7 @@ const Quiz = () => {
         score,
         time_taken: timeTaken,
         total_questions: questions.length,
-      },
-      { headers: { Authorization: token } }
-    );
+      });
 
       navigate("/result", {
         state: { score, total: questions.length, timeTaken, category_id: id },
