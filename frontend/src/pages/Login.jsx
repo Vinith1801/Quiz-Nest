@@ -31,7 +31,12 @@ const handleSubmit = async (e) => {
   const normalizedUsername = formData.username.trim().toLowerCase();
   const password = formData.password;
 
-  if (!validateUsername(normalizedUsername) || !validatePassword(password)) {
+    // Capture validation error messages
+  const usernameError = validateUsername(normalizedUsername);
+  const passwordError = validatePassword(password);
+
+  // If any error message exists, then validation fails.
+  if (usernameError || passwordError) {
     setError("Invalid credentials format");
     return;
   }
@@ -41,7 +46,7 @@ const handleSubmit = async (e) => {
     await login({ username: normalizedUsername, password });
     navigate("/");
   } catch (err) {
-    setError(err.response?.data?.message || "Login failed");
+    setError(err.response?.data?.msg || "Login failed");
   } finally {
     setLoading(false);
   }

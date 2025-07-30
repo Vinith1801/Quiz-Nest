@@ -30,12 +30,11 @@ export const AuthProvider = ({ children }) => {
 
 const login = async (credentials) => {
   const res = await api.post("/auth/login", credentials);
-
   const decoded = jwtDecode(res.data.token);
 
   const user = {
-    username: res.data.username, // ✅ direct from response
-    id: decoded.id,              // from token payload
+    username: res.data.username,
+    id: decoded.id,
   };
 
   setUser(user);

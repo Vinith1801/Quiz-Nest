@@ -64,11 +64,18 @@ const login = async (req, res) => {
 
   try {
     const user = await User.findOne({ username });
-    if (!user || !(await bcrypt.compare(password, user.password))) {
-     return res.status(400).json({ msg: "Invalid credentials" });
-    }
+    if (!user) {
+  console.log("User not found for username:", username);
+  return res.status(400).json({ msg: "Invalid credentials" });
+}
+
+const isMatch = await bcrypt.compare(password, user.password);
+if (!isMatch) {
+  console.log("Password mismatch for user:", username);
+  return res.status(400).json({ msg: "Invalid credentials" });
+}
     const token = generateToken(user);
-    res.json({ token, username: user.username });
+    res.json({ token, id: user._id, username: user.username });
   } catch (err) {
     console.error("Login Error:", err); 
     res.status(500).json({ msg: "Server error" });
