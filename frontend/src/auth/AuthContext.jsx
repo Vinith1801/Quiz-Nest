@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import api from "../api/axios";
-import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
 const AuthContext = createContext();
@@ -19,12 +18,11 @@ export const AuthProvider = ({ children }) => {
     return localStorage.getItem("token") || null;
   });
 
-  // Set or remove auth header on token change
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common["Authorization"] = `${token}`;
+      api.defaults.headers.common["Authorization"] = `${token}`;
     } else {
-      delete axios.defaults.headers.common["Authorization"];
+      delete api.defaults.headers.common["Authorization"];
     }
   }, [token]);
 
