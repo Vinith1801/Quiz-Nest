@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: "https://quiz-nest-orcin.vercel.app"
+  origin: "https://quiz-nest-orcin.vercel.app",
   credentials: true,
 }));
 app.use(cookieParser());
