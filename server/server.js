@@ -5,11 +5,16 @@ const dotenv = require("dotenv");
 const authRoutes = require("./routes/authRoutes");
 const quizRoutes = require("./routes/quizRoutes");
 const connectDB = require("./config/db");
+const cookieParser = require("cookie-parser");
 
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173", // replace with your frontend URL
+  credentials: true,
+}));
+app.use(cookieParser());
 app.use(express.json());
 
 connectDB();

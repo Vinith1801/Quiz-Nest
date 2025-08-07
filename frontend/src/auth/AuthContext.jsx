@@ -1,64 +1,58 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import api from "../api/axios";
-import { jwtDecode } from "jwt-decode";
+import { createContext, useContext, useEffect, useState } from "react";
+import api from "../api/axios"; // Use unified Axios instance
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(() => {
-    try {
-        const stored = localStorage.getItem("user");
-        return stored && stored !== "undefined" ? JSON.parse(stored) : null;
-    } catch {
-        return null;
-    }
-    });
-
-  const [token, setToken] = useState(() => {
-    return localStorage.getItem("token") || null;
+  const [loading, setLoading] = useState(true);
+  const [auth, setAuth] = useState({
+    user: null,
+    isAuthenticated: false,
   });
 
   useEffect(() => {
-    if (token) {
-      api.defaults.headers.common["Authorization"] = `${token}`;
-    } else {
-      delete api.defaults.headers.common["Authorization"];
+    const checkAuth = async () => {
+      try {
+        const res = await api.get("/auth/me");
+        setAuth({ user: res.data.user, isAuthenticated: true });
+      } catch (err) {
+        console.warn("Auth check failed:", err.response?.data || err.message);
+        setAuth({ user: null, isAuthenticated: false });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  const login = async (credentials) => {
+    try {
+      const res = await api.post("/auth/login", credentials);
+      setAuth({ user: res.data.user, isAuthenticated: true });
+    } catch (err) {
+      setAuth({ user: null, isAuthenticated: false });
+      throw err;
     }
-  }, [token]);
-
-const login = async (credentials) => {
-  const res = await api.post("/auth/login", credentials);
-  const decoded = jwtDecode(res.data.token);
-
-  const user = {
-    username: res.data.username,
-    id: decoded.id,
   };
 
-  setUser(user);
-  setToken(res.data.token);
-  localStorage.setItem("token", res.data.token);
-  localStorage.setItem("user", JSON.stringify(user));
-};
-
-
-const signup = async (data) => {
-  const res = await api.post("/auth/signup", data);
-  const decoded = jwtDecode(res.data.token);
-  setUser({ username: res.data.username, id: decoded.id });
-  setToken(res.data.token);
-  localStorage.setItem("token", res.data.token);
-  localStorage.setItem("user", JSON.stringify({ username: res.data.username, id: decoded.id }));
+  const signup = async (data) => {
+    try {
+      const res = await api.post("/auth/signup", data);
+      setAuth({ user: res.data.user, isAuthenticated: true });
+    } catch (err) {
+      setAuth({ user: null, isAuthenticated: false });
+      throw err;
+    }
   };
-  const logout = () => {
-  setUser(null);
-  setToken(null);
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
-};
+
+  const logout = async () => {
+    await api.post("/auth/logout");
+    setAuth({ user: null, isAuthenticated: false });
+  };
 
   return (
-    <AuthContext.Provider value={{ user, token, login, signup, logout }}>
+    <AuthContext.Provider value={{ ...auth, loading, login, signup, logout }}>
       {children}
     </AuthContext.Provider>
   );

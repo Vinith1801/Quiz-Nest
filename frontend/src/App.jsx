@@ -5,8 +5,9 @@ import { AnimatePresence } from "framer-motion";
 import { useAuth } from "./auth/AuthContext";
 import Navbar from "./components/Navbar";
 import SplashScreen from "./components/SplashScreen";
+import LoadingScreen from "./components/LoadingScreen"; // 🔥 Required to show while checking auth
 
-// pages
+// Pages
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
@@ -19,12 +20,11 @@ import History from "./pages/History";
 import ProtectedRoute from "./auth/ProtectedRoute";
 
 function App() {
-  const { user } = useAuth();
+  const { loading } = useAuth();
   const location = useLocation();
   const isAuthPage = ["/signin", "/signup"].includes(location.pathname);
 
   const [showSplash, setShowSplash] = useState(() => {
-    // Only show splash if not yet seen this session
     return sessionStorage.getItem("quiznest_splash_shown") !== "true";
   });
 
@@ -33,13 +33,13 @@ function App() {
       const timer = setTimeout(() => {
         sessionStorage.setItem("quiznest_splash_shown", "true");
         setShowSplash(false);
-      }, 2500); // 2.5 seconds splash
-
+      }, 2500);
       return () => clearTimeout(timer);
     }
   }, [showSplash]);
 
   if (showSplash) return <SplashScreen />;
+  if (loading) return <LoadingScreen />; // ✅ Wait until auth check completes
 
   return (
     <>
