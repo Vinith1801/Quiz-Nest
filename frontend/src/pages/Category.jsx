@@ -28,29 +28,25 @@ const Category = () => {
 
   return (
     <PageWrapper>
-    <div className="max-w-5xl mx-auto px-4 mt-20">
-      <h1 className="text-3xl font-bold text-center text-blue-700 mb-10">
-        📚 Choose a Quiz Category
-      </h1>
+      <div className="max-w-5xl mx-auto px-4 mt-20">
+        <h1 className="text-3xl font-bold text-center text-blue-700 mb-10">
+          📚 Choose a Quiz Category
+        </h1>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {categories.map((cat) => (
-        <button
-          key={cat._id}
-          onClick={() => navigate(`/quiz/${cat._id}`)}
-          className="bg-white/70 backdrop-blur-md shadow-md rounded-2xl p-6 hover:bg-blue-100 transition-all border border-blue-100 text-blue-800 font-semibold text-lg hover:scale-105 active:scale-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        >
-          <div className="text-3xl mb-2">🧩</div>
-          {cat.name}
-          {/* <img
-        src={cat.image_url}
-        alt={`${cat.name} icon`}
-        className="w-16 h-16 mb-3 object-contain rounded-xl shadow-sm"
-      /> */}
-        </button>
-      ))}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {categories.map((cat) => (
+            <button
+              key={cat._id}
+              onClick={() => navigate(`/quiz/${cat._id}`)}
+              className="group bg-white/30 backdrop-blur-lg border border-white/20 rounded-3xl p-6 shadow-xl transition-all 
+                hover:bg-white/50 hover:shadow-2xl hover:scale-105 active:scale-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <div className="text-4xl mb-3 group-hover:animate-bounce">🧩</div>
+              <p className="text-blue-800 text-lg font-semibold">{cat.name}</p>
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
     </PageWrapper>
   );
 };
